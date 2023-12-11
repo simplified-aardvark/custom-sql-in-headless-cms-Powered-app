@@ -1,25 +1,18 @@
 import Layout from '../components/layout';
 import Head from 'next/head';
 import Link from 'next/link';
-import { get_all_names } from '../lib/data';
+import { get_sorted_list} from '../lib/data';
 
 // define a getStaticProps() function - this name is defined by next.js
 export async function getStaticProps() {
-  const all_names = get_all_names();
- 
-  // const list_items = all_names.map((name) =>
-  //   // <li key={name.id}>{name.first_name} {name.last_name} </li>
-  //   <li>{name.id}</li>
-  // );
-  
+  const all_data = await get_sorted_list();
+
   return {
-    props: { all_names }
+    props: { all_data }
   };
 }
 
-
-
-export default function Home( {all_names}) {
+export default function Home( {all_data}) {
     return (
       <Layout home>
         <Head>
@@ -28,13 +21,13 @@ export default function Home( {all_names}) {
   
         <h1 className='display-4'>This is a page</h1>
 
-        <h3>This is a list of people</h3>
+        <h3>This is a list of Posts</h3>
 
         <div className='list-group'>
-          {all_names.map(
-              ({id, first_name, last_name}) => (
-                <Link key={id} href={`/people/${id}`} className="list-group-item list-group-item-action list-group-item-info">
-                  {first_name} + {last_name}
+          {all_data.map(
+              ({id, name}) => (
+                <Link key={id} href={`/${id}`} className="list-group-item list-group-item-action list-group-item-info">
+                  {name}
                 </Link>
               )
             )
