@@ -4,7 +4,7 @@ import { get_all_ids, get_item_data} from '../lib/data';
 
 export async function getStaticPaths() {
   const paths = await get_all_ids();
-  console.log("HERE: "+ paths);
+//   console.log("HERE: "+ paths);
   return {
     paths,
     fallback: false,
@@ -30,17 +30,16 @@ export default function person_page({ item_data,}) {
 
         <Layout>
             <Head>
-                <title>{item_data.post_title}</title>
+                <title>{item_data.details.product_name}</title>
             </Head>
-               
             <h1 className='text-center'>{item_data.post_title}</h1>
             <hr/>
-            <h3>Post ID: {item_data.ID}</h3>
+            <h3>Product Name: {item_data.details.product_name}</h3>
             <br/>
-            <h3>Post Date: {item_data.post_date}</h3>
+            <h3>Product Cos: {item_data.details.product_cost}</h3>
             <br/>
             <hr/>
-            <h3>Post Status: {item_data.post_status}</h3>
+            <h3>Product Number: {item_data.details.product_number}</h3>
         </Layout>
     );
   }
