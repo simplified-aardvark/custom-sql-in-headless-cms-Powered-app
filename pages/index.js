@@ -21,7 +21,7 @@ export default function Home( {all_data}) {
   
         <h1 className='display-4'>This is a page</h1>
 
-        <h3>This is a list of Posts</h3>
+        <h3>This is a list of Products</h3>
 
         <div className='list-group'>
           {all_data.map(
