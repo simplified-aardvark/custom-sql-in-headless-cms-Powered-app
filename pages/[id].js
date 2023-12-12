@@ -36,7 +36,7 @@ export default function person_page({ item_data,}) {
             <hr/>
             <h3>Product Name: {item_data.details.product_name}</h3>
             <br/>
-            <h3>Product Cos: {item_data.details.product_cost}</h3>
+            <h3>Product Cost: {item_data.details.product_cost}</h3>
             <br/>
             <hr/>
             <h3>Product Number: {item_data.details.product_number}</h3>
